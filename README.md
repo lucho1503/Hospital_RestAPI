@@ -4,7 +4,7 @@
 
 Servicio web (API REST) que sirve endpoints para un sistema de gestion de historia clinica centralizada, utilizando python con Flaks y PostgreSQL como motor de base de datos.
 
-## como instalar
+## Como instalar
 
 * Base de datos:
   * `/modelos/engine/dbstorage.py`
@@ -19,7 +19,7 @@ Servicio web (API REST) que sirve endpoints para un sistema de gestion de histor
   * variables de entorno: para poder enviar los correos de confirmacion, es necesario ajustar las variables de entorno con `mail:correo que envia`
   y `password:password del correo`
   
-## modulos y archivos:
+## Modulos y archivos:
 
   * `/modelos`: En este paquete e encuentran declaradas todas las clases usadas en la API.
   * `/modelos/engine`: Aqui se encuentra el modulo `dbstorage.py` encargado de conectarse con la base de datos y gestionar todos los objetos en ella.
@@ -34,7 +34,7 @@ Servicio web (API REST) que sirve endpoints para un sistema de gestion de histor
   * Registrar usuarios: de entrada a la API permite registrar dos tipos de usuario
   `hospital` y `paciente`, ademas crea un link para autenticar el registro por medio del correo.
   
-  * registrar paciente:
+  * Registrar paciente:
   ```http
   POST /api/v1/register
   ```
@@ -55,7 +55,7 @@ Servicio web (API REST) que sirve endpoints para un sistema de gestion de histor
   ```
   
   * Registrar hospital:
-  ````http
+  ```http
   POST /api/v1/register
   ```
   Recibe los siguientes paremetros:
@@ -73,11 +73,11 @@ Servicio web (API REST) que sirve endpoints para un sistema de gestion de histor
   "servicios": ["string", "string", ...]
   }
   ```
-  * login usuarios: para hacer login es necesario haberse verificado con el correo.
+  * Login usuarios: para hacer login es necesario haberse verificado con el correo.
   ```http
   POST /api/v1/login
   ```
-  recibe los siguientes parametros:
+  Recibe los siguientes parametros:
   ```JSON
   {
   "id": string,
@@ -91,18 +91,18 @@ Servicio web (API REST) que sirve endpoints para un sistema de gestion de histor
   }
   ```
   
-  * reiciniar password: crea un enlace para reiniciar el password con el correo.
+  * Reiciniar password: crea un enlace para reiniciar el password con el correo.
   ```http
   POST /api/v1/reset_password
   ```
-  recibe los siguientes parametros:
+  Recibe los siguientes parametros:
   ```JSON
   {
   "correo": string
   }
   ```
 
-## metodos/rutas con el uso del token o con usuario autenticado
+## Metodos/rutas con el uso del token o con usuario autenticado
 
 Cada que un usuario hace login y este es exitoso la API reotrna un token
 que se debe enviar en los headers como:
@@ -159,13 +159,13 @@ todos los metodos que acontinuacion utilizan este token para funcionar.
   ```http
   GET /descargar_consulta/<paciente_id>
   ```
-  retorna un archivo en formato csv.
+  Retorna un archivo en formato csv.
   
   * cambiar password:
   ```http
   POST api/v1/change_password
   ```
-  recibe los siguientes parametros:
+  Recibe los siguientes parametros:
   ```JSON
   {
     "old_password": string,
